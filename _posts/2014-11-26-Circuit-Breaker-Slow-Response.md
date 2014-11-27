@@ -40,7 +40,7 @@ The law can be explained further in relation to figure below. <br><br>
 So, by Little's law **N<sub>A</sub>** = ( **Processing time at A** + **B1** + **C1** ) * **X<sub>A</sub>**
 <br> Hence **N<sub>A</sub>** &prop; **B1** as well as **N<sub>A</sub>** &prop; **C1** 
 
-Generally service response timeout value is set at much higher level than average response time value typically 4 to 10 times. Hence in case of persistent timeout response or near timeout response from remote service would mean 4 to 10 times increase in concurrency at client. Circuit breakers can alleviate this 
+Generally service response timeout value is set at much higher level than average response time value typically 4 to 10 times. Hence in case of persistent timeout response or near timeout response from remote service would mean 4 to 10 times increase in concurrency at client. Circuit breakers can alleviate this problem.
 
 #Design considerations
 
