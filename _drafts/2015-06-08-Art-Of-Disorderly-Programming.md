@@ -16,19 +16,26 @@ Consider a bank account. Let's say there is a constraint that valid account can 
 
 ![Alt text](/images/account-class-diagram.jpg)
 
-For creating a account, a customer can be an existing customer or a new customer. The particular scenario we were trying to solve is creating an account for a new customer.
+For creating an account, a customer can be an existing customer or a new customer. The scenario we were trying to solve is creating an account for a new customer.
 
-The system we are working on is loosely coupled. Customer domain is managed separately from account domain. Thinking from temporal perspective, typical business process rule is: ensure customer exists and then create an account for that customer. 
 
+#Simple Solution
+In a non distributed system supporting 2 phase commit functionality, the solution is simple. In a single session, first create a customer then the account with customer created earlier. This is depicted in sequence diagram below:
 
 ![Alt text](/images/create-account-seq.jpg)
 
+Reasoning about this solution is simpler. If account creation fails, customer is not created as well. At any point of time account can not be created without a customer and creation of account and customer is visible only to current execution context. The semantics and implementation of this approach is well understood as this is the primary design choice for most developers.
 
 
-#Naive Solution
-In 2PC world it is relatively simple to 
+#Chimera of roll back
+One of the interesting things in the solution using two phase commit is visibility of changes. Even though the customer and account has been created it will not be visible outside execution context unless it is committed. This behavior gives a semblance of rollback as well. However consider a scenario when a customer is stored in a database with backing B-Tree and adding a new customer causes the B-Tree to balance. At that point event if the transaction is rolled back, the B-Tree can not be reverted back to its original state. Instead DB engine will compensate for th
 
-#Why it is important
+#Enter distributed systems
+
+Enter distributed systems and this reasoning is no longer simple. In our case customer and account entities were managed by separate applications. The mode of communication between applications was events in queue. This architectural choice ruled out using distributed transactions or any such form of two phase commit. So we were forced to move away from temporal reasoning i.e. order of actions in system to a solution where the final state is insensitive to order of actions.
+
+
+
 
 #Explain CALM
 #Show how Account creation is monotonic activity
@@ -36,11 +43,4 @@ In 2PC world it is relatively simple to
 #Take Amazon ordering example i.e. payment
 
 
-
-
-
-[cb]:http://martinfowler.com/bliki/CircuitBreaker.html
-[ri]:http://www.amazon.com/gp/product/0978739213?ie=UTF8&tag=martinfowlerc-20&linkCode=as2&camp=1789&creative=9325&creativeASIN=0978739213
-[lz]:http://homes.cs.washington.edu/~lazowska/qsp/Images/Chap_03.pdf
-[wiki-little-law]:http://en.wikipedia.org/wiki/Little's_law
 [cs]:http://www.eolss.net/sample-chapters/c15/E1-29-01-00.pdf
