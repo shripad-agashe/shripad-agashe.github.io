@@ -37,9 +37,14 @@ Enter distributed systems and this reasoning is no longer simple. In our case cu
 
 
 #Determining if eventual consistency is even applicable
-There are efforts to figure out a way to ensure that programs are eventually consistent by design in face of temporal non determinism. One such approach is CALM. CALM stands for consistency as logical monotonicity. [CALM][calm] specifies when an eventual consistency paradigm is applicable and which operations can guarantee consistency in presence of temporal non determinism. From what I understood, operations which can be modeled as sets and expressed as selection, projection and join can be implemented as eventually consistent i.e. these programs have increasing consistency as more input data is received.  These sort of operations can be termed monotonically increasing consistent operations. 
+There are efforts to figure out a way to ensure that programs are eventually consistent by design in presence of temporal non determinism. One such approach is CALM. CALM stands for consistency as logical monotonicity. [CALM][calm] specifies when an eventual consistency paradigm is applicable and which operations can guarantee consistency in presence of temporal non determinism. From what I understood, operations which can be modeled as sets and expressed as selection, projection and join can be implemented as eventually consistent i.e. these programs have increasing consistency as more input data is received. These sort of operations can be termed monotonically increasing consistent operations. 
 
-Operations such as aggregation or negation are either data dependent or order sensitive can only be implemented via blocking operation. 
+Operations such as aggregation or anti-join can only be implemented via blocking operation. 
+
+#What is monotoic logic
+I found this nice example from a book on distributed computing by [Mikito Takada][dist]
+Consider a fact that Twity is a bird, we can deduce that twity has a beak. No amount of new information is going to invalidate it. However if we have to assert, since Twity is a bird and not a penguin , hence it can fly, a new fact e.g. Twity is a penguin can invalidate our assertion. Hence the operation to deduce whether Twity can fly is non monotonic. Former is an example of join and later is an example of anti-join. 
+
 
 #TODO - Account as CALM
 #TODO - Final Solution Schematic
@@ -50,3 +55,4 @@ Operations such as aggregation or negation are either data dependent or order se
 [cs]:http://www.eolss.net/sample-chapters/c15/E1-29-01-00.pdf
 [calm]:http://db.cs.berkeley.edu/jmh/calm-cidr-short.pdf
 [ec-bailis]:https://queue.acm.org/detail.cfm?id=2462076
+[dist]:http://book.mixu.net/distsys/index.html
