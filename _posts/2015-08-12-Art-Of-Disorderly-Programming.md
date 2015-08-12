@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Art of Disorderly Programming"
-date: 2015-06-08 16:25:06 -0700
+date: 2015-08-12 16:25:06 -0700
 comments: true
 categories: {"ACID", "Consistency", "DDD", "Order of events"}
 ---
