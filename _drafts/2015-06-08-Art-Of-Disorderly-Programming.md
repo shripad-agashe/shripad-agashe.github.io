@@ -26,21 +26,26 @@ In a non distributed system supporting 2 phase commit functionality, the solutio
 
 Reasoning about this solution is simpler. If account creation fails, customer is not created as well. At any point of time account can not be created without a customer and creation of account and customer is visible only to current execution context. The semantics and implementation of this approach is well understood as this is the primary design choice for most developers.
 
+One of the interesting things in the solution using two phase commit is visibility of changes. Even though customer and account has been created it will not be visible outside execution context unless it is committed (assuming that appropriate transaction isolation levels have been set). The transaction coordinator will handle commit/rollback ensuring entities in valid state is visible to external world. __[Tangent]__ Rollback may just be an illusion a explained by Pat Helland in Open Nested Transactions.
 
-#Chimera of roll back
-One of the interesting things in the solution using two phase commit is visibility of changes. Even though the customer and account has been created it will not be visible outside execution context unless it is committed. This behavior gives a semblance of rollback as well. However consider a scenario when a customer is stored in a database with backing B-Tree and adding a new customer causes the B-Tree to balance. At that point event if the transaction is rolled back, the B-Tree can not be reverted back to its original state. Instead DB engine will compensate for th
+
+ All though two phase commit handles this via session handling, it can very well be modeled via business statues i.e. created-but-not-valid, created-and-valid, deleted etc. Business statuses are fairly common. Mostly they are used to mark deletion as logical deletion. This technique is very useful technique and we will use in our solution. 
 
 #Enter distributed systems
 
 Enter distributed systems and this reasoning is no longer simple. In our case customer and account entities were managed by separate applications. The mode of communication between applications was events in queue. This architectural choice ruled out using distributed transactions or any such form of two phase commit. So we were forced to move away from temporal reasoning i.e. order of actions in system to a solution where the final state is insensitive to order of actions.
 
 
+#Determining if eventual consistency is even applicable
+There are efforts to figure out a way to ensure that programs are eventually consistent by design in face of temporal non determinism. One such approach is CALM. CALM stands for consistency as logical monotonicity. [CALM][calm] specifies when an eventual consistency paradigm is applicable and which operations can guarantee consistency in presence of temporal non determinism. From what I understood, operations which can be modeled as sets and expressed as selection, projection and join can be implemented as eventually consistent i.e. these programs have increasing consistency as more input data is received.  These sort of operations can be termed monotonically increasing consistent operations. 
 
+Operations such as aggregation or negation are either data dependent or order sensitive can only be implemented via blocking operation. 
 
-#Explain CALM
-#Show how Account creation is monotonic activity
-#Talk about alternative/When CALM is applicablle
-#Take Amazon ordering example i.e. payment
+#TODO - Account as CALM
+#TODO - Final Solution Schematic
+
 
 
 [cs]:http://www.eolss.net/sample-chapters/c15/E1-29-01-00.pdf
+[calm]:http://db.cs.berkeley.edu/jmh/calm-cidr-short.pdf
+[ec-bailis]:https://queue.acm.org/detail.cfm?id=2462076
