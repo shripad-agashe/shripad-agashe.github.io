@@ -46,6 +46,7 @@ Operations such as aggregation or negation are either data dependent or order se
 
 
 
+
 [cs]:http://www.eolss.net/sample-chapters/c15/E1-29-01-00.pdf
 [calm]:http://db.cs.berkeley.edu/jmh/calm-cidr-short.pdf
 [ec-bailis]:https://queue.acm.org/detail.cfm?id=2462076
