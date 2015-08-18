@@ -43,11 +43,30 @@ Operations such as aggregation or anti-join can only be implemented via blocking
 
 #What is monotoic logic
 I found this nice example from a book on distributed computing by [Mikito Takada][dist]
-Consider a fact that Twity is a bird, we can deduce that twity has a beak. No amount of new information is going to invalidate it. However if we have to assert, since Twity is a bird and not a penguin , hence it can fly, a new fact e.g. Twity is a penguin can invalidate our assertion. Hence the operation to deduce whether Twity can fly is non monotonic. Former is an example of join and later is an example of anti-join. 
+Consider a fact that Twity is a bird, we can deduce that twity has a beak. No amount of new information is going to invalidate it. However if we have to assert, since Twity is a bird and not a penguin , hence it can fly, a new fact e.g. Twity is a penguin can invalidate our assertion. Hence the operation to deduce whether Twity can fly is non monotonic. Former is an example of join and later is an example of anti-join. For join operations, accuracy and consistency will increase as more input is received. However initial inference will not be invalidated. Hence it can be said that consistency will increase monotonically. 
+
+Whereas for negation operation, initial inference may be invalidated by new data. Sort of like evidence of absence is not absence of evidence. 
+
+Similarly for aggregation operations, the entire input set has to be known to arrive at consistent and accurate answer.
 
 
-#TODO - Account as CALM
-#TODO - Final Solution Schematic
+For systems where input arrival has characteristics of a stream i.e. it does not have a guaranteed temporal order as well as message arrival is unbounded in terms of time limit of completion we can apply CALM technique to arrive at appropriate design decisions. 
+
+
+#Account as CALM
+
+In case of the account creation case:
+
+We can safely assert that
+__Account is valid if ( Account is created) and (Customer is Created )__. The statement will be true no matter order in which Account or Customer is created. 
+
+Now consider a case when there is additional constraints put in on customer e.g. Customer is not of type ABC the assertion can be stated as:
+__Account is valid if ( Account is created) and (Customer is Created && Customer is Not Of Type ABC )__
+
+In present form, the assertion is not guaranteed to be consistent. Suppose during customer creation a default type(e.g. YYY) is assigned and it is later updated to XYZ then the logic will short circuit at the first instance and we can not guarantee consistency in account creation. 
+
+
+#Account Creation Solution with CALM
 
 
 
