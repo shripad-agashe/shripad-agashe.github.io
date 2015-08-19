@@ -53,9 +53,9 @@ Similarly for aggregation operations, the entire input set has to be known to ar
 For systems where input arrival has characteristics of a stream i.e. it does not have a guaranteed temporal order as well as message arrival is unbounded in terms of time limit of completion we can apply CALM technique to arrive at appropriate design decisions. 
 
 
-#Account as CALM
+#Creating Account as CALM
 
-In case of the account creation case:
+In case of the account creation:
 
 We can safely assert that
 __Account is valid if ( Account is created) and (Customer is Created )__. The statement will be true no matter order in which Account or Customer is created. 
@@ -66,7 +66,16 @@ __Account is valid if ( Account is created) and (Customer is Created && Customer
 In present form, the assertion is not guaranteed to be consistent. Suppose during customer creation a default type(e.g. YYY) is assigned and it is later updated to XYZ then the logic will short circuit at the first instance and we can not guarantee consistency in account creation. 
 
 
-#Account Creation Solution with CALM
+#Our Final Solution
+The diagram below explains our final solution:
+
+
+![Alt text](/images/Account-Creation-Calm-seq.jpg)
+
+The business rule is that account is valid with a customer.  One can always create an account without customer and assign customer to it later. We utilized this. The key idea in our solution was to create a shell account with invalid status. The shell account will have information about the customer for which it is created typically id. We created customer with same id. Account domain executed logic to change account status to valid at account creation and when it received any customer created event. With this scheme of things, we could in order insensitive manner ensure compliance with business rule for creation of account.
+
+
+
 
 
 
