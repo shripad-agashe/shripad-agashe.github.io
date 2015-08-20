@@ -1,0 +1,17 @@
+@startuml
+Participant Apply
+Participant Account
+Participant Customer
+
+Apply  -\ Account: Create Account
+note right of Account: Create account with status as "Shell"\nwith given customer id.
+Apply -\ Customer: Create customers
+
+note right of Customer: Create customer \nwith given customer id.
+
+Customer -\ Account: Notify Creation Of Customer
+
+Account -->Account : Update status of account as valid
+note right of Account: Check if Account status is "Shell"\n and Customer is created
+
+@enduml

@@ -1,0 +1,15 @@
+@startuml
+
+class Customer {
+   ID
+}
+
+
+class Account{
+    customer
+}
+
+Account o-- Customer : Aggregation
+
+
+@enduml
