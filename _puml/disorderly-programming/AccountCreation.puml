@@ -3,8 +3,9 @@ Participant Client
 Participant Customer
 Participant Account
 
-Client -> Customer: Create customer
-Customer -> Client: Return Customer id
-Client --> Account: Create Account with Given Customer Id
+Client -> Customer: Create Customer
+Customer -> Client: Return Customer ID
+Client -> Account: Create Account with Given Customer Id
+Account -> Client : Return Account ID
 
 @enduml

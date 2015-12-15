@@ -1,0 +1,24 @@
+@startuml
+participant Customer
+participant Order
+participant Payment
+participant "Vendor-1"
+participant "Vendor-2"
+activate Customer
+activate Order
+Customer -> Order: Add Product-1
+Customer -> Order: Add Product-2
+Customer -> Order: Confirm order
+deactivate Customer
+Order -> Payment: Get Money
+Payment -> Order: Received Payment
+Order -> "Vendor-1": Ship product 1
+Order -> "Vendor-2": Ship product 2
+deactivate Order
+"Vendor-2" -> Order : Product 2 - Shipped
+Order -> Order: Check if all Orders shipped
+"Vendor-1" -> Order : Product 1 - Shipped
+Order -> Order: Check if all Orders shipped
+Order -> Order:Order complete
+deactivate Order
+@enduml
