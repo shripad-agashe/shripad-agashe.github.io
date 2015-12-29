@@ -9,11 +9,11 @@ categories: {"performance", "latency", "soa"}
 
 In his seminal book [Release It!][ri] Michael Nygard elicited the "Circuit Breaker" pattern. He documented the pattern as one of the fundamental stability pattern. However he did not give any implementation schematic and also the documentation does not go in depth about the logic and fundamental need for this pattern. As mentioned in the book, circuit breaker pattern is for preventing cascading failures, unbalanced capacities, slow responses. But most often, it is coupled only with timeout tracking. In his blog about [Circuit Breaker][cb] Martin Fowler also referred this pattern only for tracking failures. I think using circuit breakers only in case of failures is inappropriate at least from a logical perspective if not implementation perspective.
 
-#Response time and timeout
+##Response time and timeout
 
 In some sense, timeout can be viewed a type of erroneous response. With this view point, timeout is a case of extremely slow response. It is the upper bound on response time from a service. Circuit breakers which track timeout errors will be unable to guard against a service returning responses with latency close to timeout value. The effect of an extremely slow response from a remote service or a timeout error is increase in number of concurrent active requests in the system . This behavior can be explained easily with [Little's law.][lz] More over using Little's law for this analysis provides insights into need for circuit breaker.
 
-#Little's Law and its repercussion
+##Little's Law and its repercussion
 
 In queuing theory any resource be it human or machine is considered a service center. Hence it is an excellent tool to model users of application, application and hardware in combination.
 
@@ -43,7 +43,7 @@ So, by Little's law **N<sub>A</sub>** = ( **Processing time at A** + **B<sub>1**
 As apparent from derivation above, concurrency at A depends directly on response time of B as well as C. This understanding helps in making informed decisions as explained in next section.
 
  
-#Design considerations
+##Design considerations
 
 Generally service response timeout value is set at much higher level than average response time value; typically 4 to 10 times. The range is necessary to allow for random case of slow response. However in case of continuous timeout responses or successful responses with near timeout value from remote service would result in 4 to 10 times increase in active requests at client. Circuit breakers help alleviate this problem by setting a average latency threshold value per given time. The average latency threshold value is closer to normal latency value than time out value. 
 
