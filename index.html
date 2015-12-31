@@ -3,19 +3,14 @@ layout: default
 comments: true
 ---
 
-{% for post in paginator.posts limit:1 %}
+{% for post in paginator.posts limit:5  %}
 <div class="article">
     <div class="well">
         <h1><a href="{{ site.baseurl}}{{ post.url }}">{{ post.date | date: "%b %-d, %Y" }} - {{ post.title }}</a></h1>
         <div class="content">
-            {{ post.content }}
+            {{ post.excerpt }}
         </div>
-        {% if page.comments %}
-        <div id="disqus_thread">
-            <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-        </div>
-        {% endif %}
+        
     </div>
 </div>
 {% endfor %}

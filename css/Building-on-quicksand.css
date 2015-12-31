@@ -9,8 +9,9 @@ img[alt="Box Box Cylinder"] {
   display: block;
 }
 
-blockquote p {
+.well blockquote {
 	font-style: italic;
-	font-size: 0.8em;
+	font-size: 1em;
+
 }
 

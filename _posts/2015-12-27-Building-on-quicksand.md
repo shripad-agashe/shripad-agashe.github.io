@@ -3,39 +3,42 @@ layout: post
 title: "Building on quicksand"
 date: 2015-12-27 16:25:06 -0700
 comments: true
-categories: {"performance", "latency", "soa"}
 custom_css: Building-on-quicksand
+
 ---
 
 #**Please note this is a draft**
-
 This post is inspired by a [paper][bqs] of the same name by Pat Helland. 
-The basic idea is around how do we build reliable system from unreliable components. In this blog post I've attempted to add some of my thinking on this subject apart from what is covered in the original paper. The content mostly centers around availability. I've tried to cover ways of achieving high availability and it's impact on design choices.
+The basic idea is how do we build a reliable system from unreliable components. In this blog post I've attempted to add some of my thinking on this subject apart from what is covered in the original paper. You will be surprised to find that reliability which in terms impacts availability have a major impact on design. Sometimes the connection is visible sometimes it is not.
 
-##Get ready for some math
+##Some maths first
 Computer systems were not the first complex systems where availability was a key issue. Most of the techniques used for increasing availability have been in use since dawn of industrial age. The techniques mostly rely on probability theory to devise effective strategies to increase availability. So let's get down to some math.
 
 ###The product rule (or multiplication law)................[1]
 This rule states that the probability of simultaneous occurrence of two or more independent events is the product of the probabilities of occurrence of each of these events individually.
 
-###Product law of reliability
-When components of a system are arranged in series then availability of entire system depends on all the components being available. Hence the system reliability is reliability of all components taken together. 
+###Product law for serial systems
+When components of a system are arranged in series then availability of the entire system depends on all the components being available. Hence the system reliability is reliability of all components taken together. 
 
 It can be expressed as:
-    R<sub>s</sub> = P( A<sub>1</sub> &#x2229; A<sub>2</sub> &#x2229;.... &#x2229; A<sub>n</sub>) .........from[1]
+>   **R<sub>s</sub> = P( A<sub>1</sub> &#x2229; A<sub>2</sub> &#x2229;.... &#x2229; A<sub>n</sub>)**
 
-**For example**
+>where A<sub>1</sub> is probability of availability of system 1, so on and so forth.
+
+>**For example**
     For a system with 3 components each with 99% availability, 
     the system availability = ( 0.99 * 0.99 * 0.99) = 0.97 i.e. **97%**
 
-###Product law of unreliability 
+###Product law for parallel systems
 When components of a system are arranged in parallel, then availability of system depends on at least one of the component being available i.e. system is unavailable if all the components of the system are unavailable. 
 
 It can be expressed as:
-R<sub>s</sub> = 1 - P( ( 1 - A<sub>1</sub>) &#x2229; (1 - A<sub>2</sub>) &#x2229;.... &#x2229; (1 - A<sub>n</sub>) )
+>**R<sub>s</sub> = 1 - P( ( 1 - A<sub>1</sub>) &#x2229; (1 - A<sub>2</sub>) &#x2229;.... &#x2229; (1 - A<sub>n</sub>) )** 
 
-**For example**
-    For a system with 3 components each with 99% availability, 
+>where A<sub>1</sub> is probability of availability of system 1, so on and so forth.
+
+>**For example**
+>For a system with 3 components each with 99% availability, 
     the system availability = 1 - ( (1 - 0.99)  * (1 - 0.99)  * (1 - 0.99))
                             = 1 - ( 0.01 * 0.01 * 0.01 )
                             = 0.999999 i.e **99.9999%**
