@@ -6,6 +6,9 @@ comments: true
 categories: {"performance", "latency", "soa"}
 custom_css: Building-on-quicksand
 ---
+
+#**Please note this is a draft**
+
 This post is inspired by a [paper][bqs] of the same name by Pat Helland. 
 The basic idea is around how do we build reliable system from unreliable components. In this blog post I've attempted to add some of my thinking on this subject apart from what is covered in the original paper. The content mostly centers around availability. I've tried to cover ways of achieving high availability and it's impact on design choices.
 
@@ -84,9 +87,16 @@ One import point to note is that even if software system perfectly represent the
 First step in any apology process, if we can call it, is to find out if we need to apologize. That means we need a way to find out the promises that could not be fulfilled. An individual process or system can tell truth from its viewpoint. However to verify any claim of truthfulness we will need an observer frame of reference. Typically it is provided by reconciliation process. Reconciliation process provides a great deal of flexibility. It can be run at different intervals based on severity of thing it is trying to verify. It can can correct any anomaly it finds based on set of rules or route it for human intervention. 
 
 ###Need for Unique Id
-Often times, time which is nothing but monotonically increasing tick helps in figuring out what has happened in what sequence. However in asynchronous processing, time tick does not help much for reasoning. We need to create additional sometime synthetic id to track progress of a business process. There are number of schemes available for managing Ids. Most common schemes is to have a set of three Ids: First id indicates ongoing transaction, second id indicates parent transaction and third id indicates the current transaction. Following this scheme we can easily build DAG of the business process.
-    
+Often times, time which is nothing but monotonically increasing tick helps in figuring out what has happened in what sequence. However in asynchronous processing, time tick does not help much for reasoning. We need to create additional sometime synthetic id to track progress of a business process. There are number of schemes available for managing Ids. Most common scheme is to have a set of three Ids: First id indicates ongoing transaction, second id indicates parent transaction and third id indicates the current transaction. Following this scheme we can easily build DAG of the business process.
+
+
 ###Repercussion of apology process
+Apology process provides a safety using which we can stretch system capabilities. Metaphorically they provide the brakes for software systems. In my experiences with systems utilizing asynchronous processing, apology process with a third party frame of reference solves quite a few problems which otherwise would have required complicated solutions. 
+
+Apology oriented mindset has significant impact on design thinking of developers. In this model, verification of correctness happens after the fact. Hence the design tends to follow more of choreography approach rather than orchestration approach. 
+
+##Thats all folks
+We started from reliability aspect of systems. The reliability forces redundancy on us hence we move into distributed components. Distributed components tend to have latency concerns hence we move to asynchronous model. Asynchronous model relies on fuzzy knowledge of the world hence we need apology process. So I am going to say sorry now and move on.... 
 
 
 
