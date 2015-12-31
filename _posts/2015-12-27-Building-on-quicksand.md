@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Building on quicksand"
-date: 2015-12-12 16:25:06 -0700
+date: 2015-12-27 16:25:06 -0700
 comments: true
 categories: {"performance", "latency", "soa"}
 custom_css: Building-on-quicksand
