@@ -88,6 +88,7 @@ As we have seen in previous section, as we move from primitive constructs like s
 Pat Helland in his talk "Subjective Consistency" made a very important point that concept of asynchrony is relative to the observer. If we go back to previous example, the writes when persisted are asynchronous to the user who requested them but for the transaction log writer it will be synchronous. Hence for same set of actions, the notion of truth as observed by the user and the log writer may be different at a given point in time. So in any system which employs asynchronous processing technique the system will appear more like in the picture below. 
 
 ![Blurred Truth](/images/building-on-quick-sand/async-system-runner.jpg)
+[image source:https://www.flickr.com/photos/stevenpisano/16595925953]
 
 In a system with multiple processes, any process will have a fuzzy idea of what is happening around it. You may think that this is applicable for only distributed systems but I can not possible confirm that :-)) (Plug of a dialog from house of cards original uk version in case you missed it). Jokes apart, the scenario is equally applicable in a single system with multiple concurrent threads. [Feral concurrency control paper][bailis-feral-concurrency] is a good read on this subject.
 
