@@ -40,7 +40,7 @@ It can be expressed as:
 >    **the system availability** = ( 0.99 * 0.99 * 0.99) = 0.97 i.e. **97%**
 
 ###Product law for parallel systems
-When components of a system are arranged in parallel, then availability of system depends on at least one of the component being available i.e. system is available if any components of the system is available. 
+When components of a system are arranged in parallel, then availability of system depends on at least one of the component being available i.e. system is available even if a single component of the system is available. 
 
 It can be expressed as:
 >**R<sub>s</sub> = 1 - P( ( 1 - A<sub>1</sub>) &#x2229; (1 - A<sub>2</sub>) &#x2229;.... &#x2229; (1 - A<sub>n</sub>) )** 
@@ -81,7 +81,7 @@ For database layer the strategy is still the same: have redundant components. So
 
 As the client waits for replication to be completed before getting an ack, the replication adds to the the latency. So in most cases the replication is done off the critical path for response to client. This opens up a window of time where there is a possibility of data loss. The effort is to keep the window of loss of information very small to reduce the impact of loss of information. One example of minimizing the window is transaction abort. Lets consider user issuing writes to DB as part of transaction. Individual write requests are **not** guaranteed to be persisted on primary and on secondary node. The guarantee is now shifted to transaction commit. So effectively w.r.t. time order, the write request by user and guarantee of persistence are delinked. The abstraction for guarantee has moved form an individual write to transaction commit which is a logical(often business) concept. This notion of moving away from system specific concept i.e. read or write from persistent store to a logical concept is a very powerful idea often under utilized in current systems.
 
-##Stretching transaction commit analogy to business logic
+##Stretching transaction commit analogy to business logical
 As we have seen in previous section, as we move from primitive constructs like storage read/write to transactions, a range of possibilities open up. Of course there are trade offs. We can stretch this further and move level of abstractions from database transactions to business transactions. Since asynchrony enables this stretch, it is important to understand it's impact on design.
 
 ###Asynchrony and truth
