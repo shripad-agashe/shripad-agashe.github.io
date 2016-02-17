@@ -24,8 +24,11 @@ gaaccount: 'UA-4933317-2'
 disqus: 'sa-github-blog'
 comments: true
 
-permalink: /:year/:month/:title
+gems: [jekyll-paginate]
+
+permalink: /:year/:month/:title/
 paginate: 3
+
 
 highlighter: pygments
 markdown: redcarpet

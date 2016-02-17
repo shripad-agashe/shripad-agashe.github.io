@@ -3,7 +3,7 @@ layout: post
 title: "Circuit breaker is about slow response"
 date: 2014-11-25 16:25:06 -0700
 comments: true
-categories: {"performance", "latency", "soa"}
+
 ---
 
 

@@ -3,7 +3,6 @@ layout: post
 title: "Art of Disorderly Programming"
 date: 2015-08-12 16:25:06 -0700
 comments: true
-categories: {"ACID", "Consistency", "DDD", "Order of events"}
 ---
 ##Do we have to decide is it chicken or egg?
 Why can't we let them come in any order and decide the outcome as cumulative effect of two events? Well I've stretched the analogy quite a bit. But wouldn't it be wonderful if it can be achieved?  
