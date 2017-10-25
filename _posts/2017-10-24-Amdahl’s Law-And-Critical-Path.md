@@ -93,7 +93,7 @@ also be applied to wide ranging areas such as Business Process Modeling and Grid
 
 
 
-##Referemces
+##References
 1. Computer System Analysis Using Queuing Network Models, Edward Lazowska, Prentice-Hall, Inc., 1984
 2. “Critical Path Analysis for the Execution of Parallel and Distributed Programs”, Yang, C.-Q.; Miller, B.P.
 1988., 8th International Conference on Distributed Computing Systems, Volume, Issue, 13-17 Jun 1988
