@@ -57,7 +57,7 @@ SLA. The response time will be affected by the parallel paths in an application 
 
 Consider an example where one of the parallel paths takes 10 seconds for completion and has 5% serialization and the second path takes 7.5 seconds for completion but has 7.5% serialization. fig.2 shows 90th percentile response time for various user loads for these parallel paths mentioned above.
 
-![Different Serialization](/images/amdahls-law/chart-21.jpg)
+![Different Serialization](/images/amdahls-law/chart-22.jpg)
 
 **fig.2** - Response time for 5% and 7% serialization
 
