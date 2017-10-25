@@ -106,7 +106,7 @@ One import point to note is that even if a software system perfectly represents 
 >Arguably, all computing really falls into three categories: memories, guesses, and apologies.The idea is that everything is done locally with a subset of the global knowledge. You know what you know when an action is performed. Since you have only a subset of the knowledge, your actions are really only guesses. When your knowledge as a replica increases, you may have an “Oh, crap!” moment. Reconciling your actions (as a replica) with the actions of an evil-twin of yours may result in recognition that there’s a mess to clean up. That may involve apologizing for your behavior (or the behavior of a replica).
 
 
-###More on apologizing
+### More on apologizing
 First step in any apology process is to find out if we need to apologize at all. That means we need a way to find out the promises that could not be fulfilled. An individual process or system can tell truth from its own viewpoint. However to verify any claim of truthfulness we will need a third party frame of reference. Typically it is provided by reconciliation process. The reconciliation process verifies what was asked and what was done. Since it provides a third party frame of reference, failure modes of communication mechanisms like failing queues, network connections can also be handled gracefully. Reconciliation process provides a great deal of flexibility. It can be run at different intervals based on severity of thing it is trying to verify. It can can correct any anomaly it finds based on set of rules or route it for human intervention. 
 
 ###Need for Unique Id

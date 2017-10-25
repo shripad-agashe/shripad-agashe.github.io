@@ -12,7 +12,7 @@ Failure to enhance performance can be attributed to multiple causes - some trivi
 
 In subsequent sections, I will explore a methodology for identifying the critical path under different workloads and its implication on the performance analysis process.
 
-##Performance Issues - A Typical Solution
+## Performance Issues - A Typical Solution
 A real-life example of an enterprise application that has multiple parallel application flows is presented below. The example illustrates a Billing Mediation System that calculates the billing amount and then routes the bills to appropriate Billing servers.
 
 An example is the Billing Mediation System diagramed below. The BMS calculates the billing amount and, then, routes the completed bill to the appropriate Billing servers.
@@ -23,13 +23,13 @@ The Billing Gateway component in the mediation system receives the requests and 
 
 Performance tests were conducted at low loads in a scaled down version of the production environment. Performance models [1] were created and parameterized with measurements (CPU, IO, Response time) taken during testing and the performance characteristics were extrapolated to understand the potential performance characteristics at the expected load. Hypothesis based on the performance models indicated that the application would meet the desired performance goals once deployed in the target production environment, which has considerably more resources. The application was deployed in the production environment and tested at the actual workload. It was observed that the actual performance characteristics did not meet the predicted performance characteristics. Discrepancies were not observed in the environment settings and none of the resources on the system (CPU, memory, network, etc.) were saturated.
 
-##Initial Analysis And Observations
+## Initial Analysis And Observations
 
 The Billing Mediation System can be envisaged as a network of interdependent activities; hence the critical path technique [2] was adopted when analyzing the performance of the application. The Critical Path technique was used to identify the longest path in the network as it determines the response time of the request. Observation of component service time in the production environment revealed that the Bill Calculator component consumed more time for completion than the Bill Router component, contrary to observations in the performance testing environment. Analysis of the component service time indicated that the critical path observed in the production environment (Billing Gateway- Bill Calculator - Bill Dispatch) was different than the path observed in the performance test environment (Billing Gateway- Bill Router- Bill Dispatch). The application team had assumed that the critical path will remain unchanged across workloads and hence the response time figures from the test environment were extrapolated to derive the response time/ throughput for a given workload.
 
 In the subsequent section we try to validate the assumption that the critical path remains unchanged across workloads. This will lead us to correct identification of critical path for any given workload.
 
-###PERFORMANCE FORECASTING AND CRITICAL PATH ANALYSIS
+### PERFORMANCE FORECASTING AND CRITICAL PATH ANALYSIS
 Amdahl’s Law gives maximum speedup possible in parallel processing systems. Amdahl's law states that if P is the proportion of a program that can be made parallel, i.e. benefit from parallelization, and (1 − P) is the proportion that cannot be parallelized, i.e., remains serial, then the maximum speedup that can be achieved by using N processing threads is:
 
 ![Billing system](/images/amdahls-law/amdahls-law.jpg)
@@ -70,7 +70,7 @@ Typically the performance test environment is a scaled down version of the produ
 In the Billing Mediation System described earlier, performance tests were conducted at low loads in a scaled down test environment and the data was used for forecasting the performance in the production environment. The forecasting technique used did not consider the presence of parallel paths, the level of serialization in those paths and the effect of changes in workload on the critical path. This led to incorrect performance forecasting and the subsequent performance issues observed in the production environment.
 
 
-##Application Of Amdahl’s Law In Critical Path Analysis
+## Application Of Amdahl’s Law In Critical Path Analysis
 The architecture validation phase is conducted during/after architecture definition to validate the capability of the architecture to sustain the expected workload and meet the SLAs. During this phase, the critical elements of the architecture are prototyped and measured to understand the effect of the expected workload on the architecture. It is important to identify parallel paths for performance critical use cases in the application and prototype them. The prototype must be tested with varying workloads (not necessarily the target workload) to identify the quantum of serialization in each path using Amdahl’s Law. The quantum of serialization will have an effect on the response time of each request.
 
 Once the measurements from prototype are recorded, the data will be used for curve fitting based on the Amdahl’s Law. The curve fitting exercise will yield quantum of serialization in each path, which is then used for extrapolation to determine the critical path and response time for a given user load. The step can be illustrated in diagrammatic form
@@ -87,13 +87,13 @@ The box below illustrates use of Amdahl’s Law to project response time for a p
 Percentile response time based on the requirements (90 percentile, 95 percentile etc) can be derived from the parallel time calculated for different number of requests to check conformance with the SLA’s. Because of serialization, the response time will add up for each incremental user. Hence to determine percentile time, first percentile user number needs to be calculated. From the user number derived, the required percentile response time can be obtained.
 For example if there are going to be 200 concurrent users, the 95th percentile of concurrent users is 190 users. So for the 190th user the response is seen as 104 (refer calculation [4] in example above).
 
-##Conclusion
+## Conclusion
 During performance analysis and forecasting it is important to identify all parallel paths for a given use case and their serialization characteristics using Amdhal’s Law. The data gathered from this activity helps in identifying the correct critical path for a given workload to accurately predict performance of the use case. The technique can
 also be applied to wide ranging areas such as Business Process Modeling and Grid Technologies which take advantage of parallel processing.
 
 
 
-##References
+## References
 1. Computer System Analysis Using Queuing Network Models, Edward Lazowska, Prentice-Hall, Inc., 1984
 2. “Critical Path Analysis for the Execution of Parallel and Distributed Programs”, Yang, C.-Q.; Miller, B.P.
 1988., 8th International Conference on Distributed Computing Systems, Volume, Issue, 13-17 Jun 1988
