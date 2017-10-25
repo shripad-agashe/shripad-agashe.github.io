@@ -30,11 +30,12 @@ permalink: /:year/:month/:title/
 paginate: 3
 
 
-highlighter: pygments
-markdown: redcarpet
-redcarpet:
-  extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-
+highlighter: rouge
+markdown: kramdown
+kramdown:
+  input: GFM
+  auto_ids: true
+  syntax_highlighter: rouge
 exclude: ['README.md', 'LICENSE']
 
 analytics :
