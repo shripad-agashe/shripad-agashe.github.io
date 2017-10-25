@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Amdahl’s law and changes in critical path"
-date: 2017-04-30 16:25:06 -0700
+date: 2017-10-24 16:25:06 -0700
 comments: true
 custom_css: amdahls-law
 
