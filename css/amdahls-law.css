@@ -1,0 +1,32 @@
+img[alt="Billing system"] { 
+  width: 30%; 
+  height: 30%;
+  display: block;
+  text-align: center;
+}
+
+
+img[alt="Different Serialization"]
+{
+  width: 50%; 
+  height: 50%;
+}
+
+img[alt="5% serialization"]
+{
+  width: 50%; 
+  height: 50%;
+}
+
+
+img[alt="Calculation Table"]
+{
+  width: 70%; 
+  height: 70%;
+}
+
+img[alt="Process Table"]
+{
+  width: 80%; 
+  height: 70%;
+}
