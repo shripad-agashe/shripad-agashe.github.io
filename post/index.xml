@@ -2,57 +2,57 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Random Sparks</title>
-    <link>https://shripad-agashe.github.io/post/</link>
+    <link>http://shripad-agashe.github.io/post/</link>
     <description>Recent content in Posts on Random Sparks</description>
     <generator>Hugo -- gohugo.io</generator>
     <lastBuildDate>Tue, 24 Oct 2017 16:25:06 +0000</lastBuildDate>
     
-	<atom:link href="https://shripad-agashe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://shripad-agashe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Amdahl’s law and changes in critical path</title>
-      <link>https://shripad-agashe.github.io/2017/10/24/amdahls-law-and-critical-path/</link>
+      <link>http://shripad-agashe.github.io/2017/10/24/amdahls-law-and-critical-path/</link>
       <pubDate>Tue, 24 Oct 2017 16:25:06 +0000</pubDate>
       
-      <guid>https://shripad-agashe.github.io/2017/10/24/amdahls-law-and-critical-path/</guid>
+      <guid>http://shripad-agashe.github.io/2017/10/24/amdahls-law-and-critical-path/</guid>
       <description>Augmentation of hardware and software resources is a classic technique that is often adopted by IT teams to improve the performance of applications. However, it is commonly observed that, contrary to expectations, the increase in the computing resources does not necessarily lead to improvement in the performance, as expected. This situation presents unique challenges to the IT teams as they grapple to analyze the reason for the inefficacy of the technique in improving performance.</description>
     </item>
     
     <item>
       <title>Building on quicksand</title>
-      <link>https://shripad-agashe.github.io/2015/12/27/building-on-quicksand/</link>
+      <link>http://shripad-agashe.github.io/2015/12/27/building-on-quicksand/</link>
       <pubDate>Sun, 27 Dec 2015 16:25:06 +0000</pubDate>
       
-      <guid>https://shripad-agashe.github.io/2015/12/27/building-on-quicksand/</guid>
+      <guid>http://shripad-agashe.github.io/2015/12/27/building-on-quicksand/</guid>
       <description>##For the want of reliability This post is inspired by a paper of the same name by Pat Helland. The basic idea is: build a reliable system from unreliable components. In this blog post I&amp;rsquo;ve attempted to add some of my thinking on this subject apart from what is covered in the original paper. You will be surprised to find that reliability decisions which in turn impact availability have a major impact on system design.</description>
     </item>
     
     <item>
       <title>Art of Disorderly Programming</title>
-      <link>https://shripad-agashe.github.io/2015/08/12/art-of-disorderly-programming/</link>
+      <link>http://shripad-agashe.github.io/2015/08/12/art-of-disorderly-programming/</link>
       <pubDate>Wed, 12 Aug 2015 16:25:06 +0000</pubDate>
       
-      <guid>https://shripad-agashe.github.io/2015/08/12/art-of-disorderly-programming/</guid>
+      <guid>http://shripad-agashe.github.io/2015/08/12/art-of-disorderly-programming/</guid>
       <description>##Do we have to decide is it chicken or egg? Why can&amp;rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&amp;rsquo;ve stretched the analogy quite a bit. But wouldn&amp;rsquo;t it be wonderful if it can be achieved?
 Often we tend to reason in terms of temporal order of events and get fixated on the order than the eventual result. In a non distributed, ensuring temporal order ensured correct eventual result.</description>
     </item>
     
     <item>
       <title>Circuit breaker is about slow response</title>
-      <link>https://shripad-agashe.github.io/2014/11/26/circuit-breaker-slow-response/</link>
+      <link>http://shripad-agashe.github.io/2014/11/26/circuit-breaker-slow-response/</link>
       <pubDate>Wed, 26 Nov 2014 16:25:06 +0000</pubDate>
       
-      <guid>https://shripad-agashe.github.io/2014/11/26/circuit-breaker-slow-response/</guid>
+      <guid>http://shripad-agashe.github.io/2014/11/26/circuit-breaker-slow-response/</guid>
       <description>In his seminal book Release It! Michael Nygard elicited the &amp;ldquo;Circuit Breaker&amp;rdquo; pattern. He documented the pattern as one of the fundamental stability pattern. However he did not give any implementation schematic and also the documentation does not go in depth about the logic and fundamental need for this pattern. As mentioned in the book, circuit breaker pattern is for preventing cascading failures, unbalanced capacities, slow responses. But most often, it is coupled only with timeout tracking.</description>
     </item>
     
     <item>
       <title>State Vs Strategy Pattern</title>
-      <link>https://shripad-agashe.github.io/2012/05/15/state-vs-stragey-pattern/</link>
+      <link>http://shripad-agashe.github.io/2012/05/15/state-vs-stragey-pattern/</link>
       <pubDate>Tue, 15 May 2012 16:25:06 +0000</pubDate>
       
-      <guid>https://shripad-agashe.github.io/2012/05/15/state-vs-stragey-pattern/</guid>
+      <guid>http://shripad-agashe.github.io/2012/05/15/state-vs-stragey-pattern/</guid>
       <description>I was having a casual discussion with an ex colleague. The topic went on to patterns discussion and finally we ended at usual discussion about state vs strategy pattern. All though the discussion did not end conclusively, it remained on my mind for a while culminating into this blog post.
 Typically State/Strategy pattern will be used where the behavior is conditional i.e. conditional statements will be replaced with objects with specific behavior.</description>
     </item>
