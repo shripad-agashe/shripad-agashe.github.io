@@ -158,7 +158,7 @@ ga('send', 'pageview');
 
 <h2 id="abstraction-depends-on-context">Abstraction depends on context</h2>
 
-<p>When I heard the statement &ldquo;A lock is a lock because of the key&rdquo;, it was one of the exhilarating insights I have listened to. To put in perspective, if you happen to lose the key to the lock, the lock is nothing but a dead weight. So when we design abstractions for lock, we are also parallelly designing abstractions for key. So our prior knowledge is playing a role there. We are always designing abstraction in pair most of the time unconsciously. The abstraction we derive is nothing but interactions between the two components of the coupling. As coupling changes the abstraction should also change. But since only a part of the coupling is exhibited in code, the other part is often left to interpretations and assumptions.</p>
+<p>When I heard the statement &ldquo;A lock is a lock because of the key&rdquo;, it was one of the exhilarating insights I have listened to. To put in perspective, if you happen to lose the key to the lock, the lock is nothing but a dead weight. So when we design abstractions for lock, we are also parallelly designing abstractions for key. So our prior knowledge is playing a role there. We are always designing abstraction in pair most of the time sub-consciously. The abstraction we derive is nothing but interactions between the two components of the coupling. As coupling changes the abstraction should also change. But since only a part of the coupling is exhibited in code, the other part is often left to interpretations and assumptions.</p>
 
 <p>I like to end this post with a reminder that our abstraction is always incomplete. A famous example is scientists trying to recreate prairie from the description of the prairie. They could not recreate it successfully till the time they realise the missing ingredient: Fire.</p>
 
@@ -180,6 +180,31 @@ ga('send', 'pageview');
     </div></div>
 </nav>
 
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "@RandonSparks42" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
 
 
       </main>
