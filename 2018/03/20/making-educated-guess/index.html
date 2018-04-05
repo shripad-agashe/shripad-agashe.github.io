@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+<meta name='description' content='My last blog entry on difficulties in abstractions has been summarized nicely by Jessica Kerr in her tweet
+&ldquo;To find the right abstraction, guess.If it exhibits the right properties, stop.&rdquo;
+With that theme I&rsquo;m going to dive into the guessing game of abstraction in this blog post.
+Reductionism vs emergent behavior Consider a vehicle which can turn. Something similar to picture below:
+The parts that moves the bus are tyres.'>
+
+<meta property='og:title' content='The guessing game of abstractions • Random Sparks'>
+<meta property='og:description' content='My last blog entry on difficulties in abstractions has been summarized nicely by Jessica Kerr in her tweet
+&ldquo;To find the right abstraction, guess.If it exhibits the right properties, stop.&rdquo;
+With that theme I&rsquo;m going to dive into the guessing game of abstraction in this blog post.
+Reductionism vs emergent behavior Consider a vehicle which can turn. Something similar to picture below:
+The parts that moves the bus are tyres.'>
+<meta property='og:url' content='https://shripad-agashe.github.io/2018/03/20/making-educated-guess/'>
+<meta property='og:site_name' content='Random Sparks'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post'><meta property='article:published_time' content='2018-03-21T16:25:06Z'/><meta property='article:modified_time' content='2018-03-21T16:25:06Z'/><meta name='twitter:card' content='summary'>
+
+<meta name="generator" content="Hugo 0.34" />
+
+  <title>The guessing game of abstractions • Random Sparks</title>
+  <link rel='canonical' href='https://shripad-agashe.github.io/2018/03/20/making-educated-guess/'>
+  
+  
+  <link rel='icon' href='/favicon.ico'>
+<link rel='stylesheet' href='/assets/css/main.8d5211f9.css'><link rel='stylesheet' href='/css/custom.css'>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-4933317-2', 'auto');
+ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+</head>
+
+
+<body class='page type-post has-sidebar sidebar-sticky'>
+
+  <div class='site'>
+
+    <a class='screen-reader-text' href='#main-menu'>Skip to Main Menu</a>
+
+<div id='sidebar' class='sidebar'>
+  <div class='container'><section class='widget widget-about sep-after'>
+  <header>
+    
+    <div class='logo'>
+      <a href='/'>
+        <img src='/images/random-spark.png'>
+      </a>
+    </div>
+    
+    <h2 class='title site-title '>
+    Random Sparks
+    </h2>
+    <div class='desc'>
+    My Rambling and Meme Place
+    </div>
+  </header>
+
+</section>
+<section class='widget widget-taxonomy_cloud sep-after'>
+  <header>
+    <h4 class='title widget-title'>Tags</h4>
+  </header>
+
+  <div class='container list-container'>
+  <ul class='list taxonomy-cloud'><span>Not a single Tag!</span></ul>
+</div>
+
+
+</section>
+</div>
+</div>
+
+    <div class='main'>
+
+      <nav id='main-menu' class='main-menu' aria-label='Main Menu'>
+  <div class='container'>
+    <a class='screen-reader-text' href='#content'>Skip to Content</a>
+
+<button id='sidebar-toggler' class='hamburger hamburger--arrow sidebar-toggler' type='button' aria-controls='sidebar' aria-expanded='false'>
+  <span class='screen-reader-text'>Toggle Sidebar</span>
+  <span class="hamburger-box">
+    <span class="hamburger-inner"></span>
+  </span>
+</button>
+    <ul><li class='item'>
+        <a href='/'>Home</a>
+      </li></ul>
+  </div>
+</nav>
+
+
+      <header id='header' class='header site-header'>
+        <div class='container sep-after'>
+          <div class='header-info'><p class='site-title title'>Random Sparks</p><p class='desc site-desc'>My Rambling and Meme Place</p>
+          </div>
+        </div>
+      </header>
+
+      <main id='content'>
+
+
+<article lang='en' class='entry'>
+  <header class='header entry-header'>
+  <div class='container sep-after'>
+    <div class='header-info'>
+      <h1 class='title'>The guessing game of abstractions</h1>
+      
+
+    </div>
+    
+<div class='entry-meta'>
+  <span class='posted-on'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+  <line x1="16" y1="2" x2="16" y2="6"/>
+  <line x1="8" y1="2" x2="8" y2="6"/>
+  <line x1="3" y1="10" x2="21" y2="10"/>
+  
+</svg>
+<span class='screen-reader-text'>Posted on </span>
+  <time class='entry-date' datetime='2018-03-21T16:25:06Z'>2018, Mar 21</time>
+</span>
+
+  
+  
+<span class='reading-time'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <circle cx="12" cy="12" r="10"/>
+  <polyline points="12 6 12 12 15 15"/>
+  
+</svg>
+9 mins read
+</span>
+
+
+</div>
+
+
+  </div>
+</header>
+
+  
+  
+
+  <div class='container entry-content'>
+  
+
+<p>My last blog entry on <a href="https://shripad-agashe.github.io/2018/03/19/abstractions/" target="_blank">difficulties in abstractions</a> has been summarized nicely by Jessica Kerr in her <a href="https://twitter.com/jessitron/status/977214387592327169" target="_blank">tweet</a></p>
+
+<p>&ldquo;To find the right abstraction, guess.If it exhibits the right properties, stop.&rdquo;</p>
+
+<p>With that theme I&rsquo;m going to dive into the guessing game of abstraction in this blog post.</p>
+
+<h2 id="reductionism-vs-emergent-behavior">Reductionism vs emergent behavior</h2>
+
+<p>Consider a vehicle which can turn. Something similar to picture below:</p>
+
+<p><img src="/images/turning-bus.jpg" alt="Turning Bus" /></p>
+
+<p>The parts that moves the bus are tyres. Each individual tyre can only move forward or backward. So how does the bus takes a turn? If you observe the arrangement of tyres, the front tyres are arranged at a particular angle. So the circular movement of the bus can not be found in individual tyres, but how these tyres are arranged.</p>
+
+<p>Let&rsquo;s assume for a moment that the tires are not visible to you and you have to model this behavior. The reductionist approach will lead to finding an abstraction which mimicS the behavior found in bus to its components. So each tyre on the bus needs to rotate around itself. It will be somewhat a spherical ball tyre. But as you can see it is quite far away from the actual picture you see on the bus. So we are missing something.</p>
+
+<p>A different idea coming from complex systems science is that properties of a system could also be due to interactions between it&rsquo;s components or particular arrangements of components. This is known as emergence. This is in contrast to reductionist approach which entails attributing properties of the system to properties of one of it&rsquo;s parts. Reductionist approach, focuses only on components of the system ignoring the interactions, and emergence approach considers relationship between components as well. P.W. Anderson has written a wonderful <a href="http://robotics.cs.tamu.edu/dshell/cs689/papers/anderson72more_is_different.pdf" target="_blank">article</a> on this if you want to go into details of this.</p>
+
+<p>As I had described in my <a href="https://shripad-agashe.github.io/2018/03/19/abstractions/" target="_blank">abstractions</a> blog post, abstractions always come in twos hence one will need to be aware of limits of reductionist approach and will need to consider implications of emergence.</p>
+
+<p>Remember lock is a lock because of the key or more succinct example would be air pressure of a gas is due to collisions in the constituent molecules/atoms. Understanding of techniques to model behavior of the collective will be a good tool to have in one&rsquo;s repertoire. In the next section I will introduce some techniques I found useful.</p>
+
+<h2 id="complexity-profile">Complexity Profile</h2>
+
+<p>Modeling collective behavior can be best understood by a concept called complexity profile. Dr. Yaneer Bar Yam has covered it so well that all I have to do is to quote snippets from his paper  <a href="http://www.necsi.edu/research/multiscale/EOLSSComplexityRising.pdf" target="_blank"><em><strong>Complexity Rising</strong></em></a> to make the point.</p>
+
+<p><strong>Why is complexity profile useful</strong></p>
+
+<pre><code>A more systematic way of thinking about the problem of understanding collective behavior
+uses the concept of a complexity profile. The complexity profile focuses attention on the
+scale at which a certain behavior of a system is visible to an observer, or the extent of the
+impact it can have on its environment. Both of these are relevant to interactions of a system
+with its environment—an observer can see the behavior only when the behavior is sufficiently
+large to affect the observer.
+
+</code></pre>
+
+<p><strong>What is scale in complexity profile</strong></p>
+
+<pre><code>A formal definition of scale considers the spatial extent, time duration, momentum and energy
+of a behavior. More intuitively, when many parts of a system act together to make a single
+behavior happen, the behavior is a large scale one. When only a few parts of a system act
+together, the behavior is a small scale one. The energy of different actions of the system is
+also relevant. When the amount of energy devoted to an action is large, then it is a large scale
+action. In essence, the units of energy are working together to make a large scale behavior.
+</code></pre>
+
+<p><strong>Definition of complexity profile</strong></p>
+
+<pre><code>The complexity profile counts the number of independent behaviors that are visible at a
+particular scale. The use of the term &quot;complexity&quot; reflects a quantitative theory of the degree
+of difficulty of describing a system's behavior. In its most basic form, this theory simply
+counts the number of independent behaviors as a measure of the complexity of a system. The
+complexity profile characterizes the system behavior by describing the complexity as a
+function of scale. Intuitively, we are considering a system described at different levels of
+detail. The complexity profile tells us how much information is needed to describe a system
+at each level of detail.
+
+</code></pre>
+
+<p><strong>Camera zoom as an analogy for complexity profile</strong></p>
+
+<pre><code>The zoom lens on a camera seems to capture this idea because zooming in provides more and
+more detail. The problem is that as we zoom in we see less and less of the entire system. To
+be consistent about what we are describing we must always describe the entire system no
+matter how detailed our description becomes. Thus, it is better to think about focusing the
+camera more and more accurately. Changing scale is changing the precision of observation, not
+changing the system that we are observing. This means that as we increase the level of
+precision we also increase the length of our description.
+</code></pre>
+
+<p><strong>The central point of complexity profile</strong></p>
+
+<pre><code>When the behaviors of parts are coupled in subgroups, their behavior manifests at the scale
+corresponding to the size of the group. The central point is: When the independence of the
+parts is reduced, the scale of behavior is increased. This also means that describing the
+behavior of the parts is simpler because they are doing the same thing.
+</code></pre>
+
+<p><em><strong>The central point is: When the independence of the parts is reduced, the scale of behavior is increased.</strong></em></p>
+
+<p><strong>Complexity profile facilitates trade-off</strong></p>
+
+<pre><code>This means there is a trade-off between the length of our description of a system at large
+scale, and the length of the description at fine scale. If we consider various systems that might
+be made of the same materials (and with the same energy), we can use the complexity profile
+to compare them. Each way of organizing the system (and distributing the energy) results in
+tradeoffs between the complexity of their microscopic description against the complexity of
+their description at progressively larger scales.
+</code></pre>
+
+<p><strong>Independent vs Coherent behaviour</strong></p>
+
+<pre><code>Independent behavior is to be contrasted with coherent motion. In coherent motion all of the
+parts of the system move in the same direction. This is the largest scale behavior possible for
+the system. Since the behaviors of the parts of the system are all the same, they are simple to
+describe on the largest scale. 
+</code></pre>
+
+<p><strong>Complex system is a combination of independent and coherent behavior</strong></p>
+
+<pre><code>Neither of these two examples corresponds to complex collective behavior, for example a
+human being. Unlike the coherent motion case, the complex behavior of a human being must
+include many different behaviors. Unlike the independent action case, many of these
+behaviors are visible on a large scale. In order for such visibility to occur various subgroups of
+the system must have coordinated behaviors. The resulting correlations are distributed at
+different scales. Some of them are found at a microscopic scale in the coupled motion or
+positions of molecules, and others appear in the collective motion of, for example, muscle
+cells and the motion of the body as a whole. Thus, the complexity profile of a complex
+system like a human being involves a distribution of scales at which behavior manifests itself.
+This balance between highly random and highly ordered motion is characteristic of the
+behavior of complex systems.
+</code></pre>
+
+<p>With basic concepts of complexity profile enumerated above, we can now apply this to the bus tyre example.</p>
+
+<h2 id="complexity-profile-analysis-of-bus-moving">Complexity profile analysis of bus moving</h2>
+
+<p>Movement of the bus is the behavior of the collective. All tyres and their co-ordinators must participate to make the movement possible. Each tyre can move independently without any coordination but that will take the bus apart. Also each individual tyre is not capable of moving the entire bus. So now get into trade offs. If we want an independent behavior of the tyre, it will be a unityre bus. So far I&rsquo;ve not seen any bus like that. So at the scale of a bus, we have to subordinate the movement of the tyres to a control system which will govern speed and direction of each tyre. The control system is an orchestrator.</p>
+
+<p>Now there could be one or many orchestrator adding different movement capabilities to bus. Here again the scale comes into play. If we have 3 orchestrators,one each for front and back tyres and one orchestrator to control 2 orchestrator, front and back tyres may be moving independent of each other and yet their movement is coordinated. But again there is a tradeoff. If you have observed drag racing cars, they achieve speed by curtailing the movement of the tires and their control system. The drag racing cars can move only in straight line. They replace multiple orchestrators with a single one. Scale at higher level means simplicity at component level.</p>
+
+<p>Now consider the 3 orchestrator scenario again. If each orchestrator controlling tyre movement has sensors to track the speed, it can form a closed feedback loop system in itself. So given a speed setting given by higher level orchestrator, the tyre orchestrator will compensate for external conditions and maintain the set speed. So tyre orchestrator can act independently and react to external environment while still subordinating some of its behavior to coordinator of the system. The effect here is reverse. By adding complexity at component level, we have simplified behaviour at system level.</p>
+
+<h2 id="heuristics-about-nature-of-components">Heuristics about nature of components</h2>
+
+<p>The important idea that I learnt from complexity profile ideas is to observe and guess the scale of the component and then apply the idiom: <em>If scale is large, components will need to be simple. If the system has number of independent behaviors, the scale would be small and components complex.</em> As we have two contrasting ideas, we can start calibrating our system between these two ideas to achieve the necessary design that will satisfy given requirement.</p>
+
+<p>Most often the problem of identifying responsibility is due to the effect of multiple entities of the same type collaborating to produce the required effect. It becomes very difficult to identify which is the property of the component and which is due to collective. So we need model interaction as a first class concept itself. For that I want to highlight the role of orchestrator in above example. Orchestration as a first class concept is somewhat of an anathema in current developer community. As Greg Young expressed in his talk a decade of DDD, processor manager will play an important role in upcoming development paradigms.</p>
+
+<p>I leave you with a quote from Donald Reinertsen, &ldquo;The value of any system is in the connection between the components. The connections add value but they also add complexity.&rdquo;</p>
+
+</div>
+
+</article>
+
+<nav class='entry-nav'>
+  <div class='container'><div class='prev-entry sep-before'>
+      <a href='/2018/03/19/abstractions/'>
+        <span aria-hidden='true'><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <line x1="20" y1="12" x2="4" y2="12"/>
+  <polyline points="10 18 4 12 10 6"/>
+  
+</svg>
+ Previous</span>
+        <span class='screen-reader-text'>Previous post: </span>Difficulties in abstraction</a>
+    </div></div>
+</nav>
+
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "@RandonSparks42" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
+
+
+      </main>
+
+      <footer id='footer' class='footer'>
+        <div class='container sep-before'>
+          <section class='widget widget-social_menu sep-after'><nav aria-label='Social Menu'>
+    <ul><li>
+        <a href='https://github.com/shripad-agashe' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Github account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://twitter.com/shripadagashe' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Twitter account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+  
+</svg>
+</a>
+      </li><li>
+        <a href='https://linkedin.com/in/sagashe' target='_blank' rel='noopener'>
+          <span class='screen-reader-text'>Open Linkedin account in new tab</span><svg class='icon' viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+  
+  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+  <rect x="2" y="9" width="4" height="12"/>
+  <circle cx="4" cy="4" r="2"/>
+  
+</svg>
+</a>
+      </li></ul>
+  </nav>
+</section>
+
+          <div class='copyright'>
+  <p> &copy; 2017-2018 Shripad Agashe </p>
+</div>
+
+        </div>
+      </footer>
+
+    </div>
+  </div><div class='sidebar-overlay'></div><script>window.__public_path__='\/assets\/js\/'</script>
+
+<script src='/assets/js/main.80cd10bb.js'></script><script src='/js/custom.js'></script>
+</body>
+
+</html>
+

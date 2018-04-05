@@ -5,10 +5,23 @@
     <link>https://shripad-agashe.github.io/post/</link>
     <description>Recent content in Posts on Random Sparks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Mon, 19 Mar 2018 16:25:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 21 Mar 2018 16:25:06 +0000</lastBuildDate>
     
 	<atom:link href="https://shripad-agashe.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The guessing game of abstractions</title>
+      <link>https://shripad-agashe.github.io/2018/03/20/making-educated-guess/</link>
+      <pubDate>Wed, 21 Mar 2018 16:25:06 +0000</pubDate>
+      
+      <guid>https://shripad-agashe.github.io/2018/03/20/making-educated-guess/</guid>
+      <description>My last blog entry on difficulties in abstractions has been summarized nicely by Jessica Kerr in her tweet
+&amp;ldquo;To find the right abstraction, guess.If it exhibits the right properties, stop.&amp;rdquo;
+With that theme I&amp;rsquo;m going to dive into the guessing game of abstraction in this blog post.
+Reductionism vs emergent behavior Consider a vehicle which can turn. Something similar to picture below:
+The parts that moves the bus are tyres.</description>
+    </item>
     
     <item>
       <title>Difficulties in abstraction</title>
@@ -64,19 +77,6 @@ Often we tend to reason in terms of temporal order of events and get fixated on 
       <guid>https://shripad-agashe.github.io/2012/05/15/state-vs-stragey-pattern/</guid>
       <description>I was having a casual discussion with an ex colleague. The topic went on to patterns discussion and finally we ended at usual discussion about state vs strategy pattern. All though the discussion did not end conclusively, it remained on my mind for a while culminating into this blog post.
 Typically State/Strategy pattern will be used where the behavior is conditional i.e. conditional statements will be replaced with objects with specific behavior.</description>
-    </item>
-    
-    <item>
-      <title>The guessing game of abstractions</title>
-      <link>https://shripad-agashe.github.io/2011/03/2/making-educated-guess/</link>
-      <pubDate>Mon, 21 Mar 2011 16:25:06 +0000</pubDate>
-      
-      <guid>https://shripad-agashe.github.io/2011/03/2/making-educated-guess/</guid>
-      <description>My last blog entry on difficulties in abstractions has been summarized nicely by Jessica Kerr in her tweet
-&amp;ldquo;To find the right abstraction, guess.If it exhibits the right properties, stop.&amp;rdquo;
-With that theme I&amp;rsquo;m going to dive into the guessing game of abstraction in this blog post.
-Reductionism vs emergent behavior Consider a vehicle which can turn. Something similar to picture below:
-The parts that moves the bus are tyres.</description>
     </item>
     
   </channel>
