@@ -142,13 +142,15 @@ ga('send', 'pageview');
   
 
   <div class='container entry-content'>
-  <p>In his seminal book <a href="http://www.amazon.com/gp/product/0978739213?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0978739213" target="_blank">Release It!</a> Michael Nygard elicited the &ldquo;Circuit Breaker&rdquo; pattern. He documented the pattern as one of the fundamental stability pattern. However he did not give any implementation schematic and also the documentation does not go in depth about the logic and fundamental need for this pattern. As mentioned in the book, circuit breaker pattern is for preventing cascading failures, unbalanced capacities, slow responses. But most often, it is coupled only with timeout tracking. In his blog about <a href="http://martinfowler.com/bliki/CircuitBreaker.html" target="_blank">Circuit Breaker</a> Martin Fowler also referred this pattern only for tracking failures. I think using circuit breakers only in case of failures is inappropriate at least from a logical perspective if not implementation perspective.</p>
+  
 
-<p>##Response time and timeout</p>
+<p>In his seminal book <a href="http://www.amazon.com/gp/product/0978739213?ie=UTF8&amp;tag=martinfowlerc-20&amp;linkCode=as2&amp;camp=1789&amp;creative=9325&amp;creativeASIN=0978739213" target="_blank">Release It!</a> Michael Nygard elicited the &ldquo;Circuit Breaker&rdquo; pattern. He documented the pattern as one of the fundamental stability pattern. However he did not give any implementation schematic and also the documentation does not go in depth about the logic and fundamental need for this pattern. As mentioned in the book, circuit breaker pattern is for preventing cascading failures, unbalanced capacities, slow responses. But most often, it is coupled only with timeout tracking. In his blog about <a href="http://martinfowler.com/bliki/CircuitBreaker.html" target="_blank">Circuit Breaker</a> Martin Fowler also referred this pattern only for tracking failures. I think using circuit breakers only in case of failures is inappropriate at least from a logical perspective if not implementation perspective.</p>
+
+<h2 id="response-time-and-timeout">Response time and timeout</h2>
 
 <p>In some sense, timeout can be viewed a type of erroneous response. With this view point, timeout is a case of extremely slow response. It is the upper bound on response time from a service. Circuit breakers which track timeout errors will be unable to guard against a service returning responses with latency close to timeout value. The effect of an extremely slow response from a remote service or a timeout error is increase in number of concurrent active requests in the system . This behavior can be explained easily with <a href="http://homes.cs.washington.edu/~lazowska/qsp/Images/Chap_03.pdf" target="_blank">Little&rsquo;s law.</a> More over using Little&rsquo;s law for this analysis provides insights into need for circuit breaker.</p>
 
-<p>##Little&rsquo;s Law and its repercussion</p>
+<h2 id="little-s-law-and-its-repercussion">Little&rsquo;s Law and its repercussion</h2>
 
 <p>In queuing theory any resource be it human or machine is considered a service center. Hence it is an excellent tool to model users of application, application and hardware in combination.</p>
 
@@ -177,7 +179,7 @@ ga('send', 'pageview');
 
 <p>As apparent from derivation above, concurrency at A depends directly on response time of B as well as C. This understanding helps in making informed decisions as explained in next section.</p>
 
-<p>##Design considerations</p>
+<h2 id="design-considerations">Design considerations</h2>
 
 <p>Generally service response timeout value is set at much higher level than average response time value; typically 4 to 10 times. The range is necessary to allow for random case of slow response. However in case of continuous timeout responses or successful responses with near timeout value from remote service would result in 4 to 10 times increase in active requests at client. Circuit breakers help alleviate this problem by setting a average latency threshold value per given time. The average latency threshold value is closer to normal latency value than time out value.</p>
 
@@ -215,6 +217,31 @@ ga('send', 'pageview');
     </div></div>
 </nav>
 
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "@RandonSparks42" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
 
 
       </main>

@@ -4,11 +4,11 @@
 <head>
   <meta charset='utf-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-<meta name='description' content='##Do we have to decide is it chicken or egg? Why can&rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&rsquo;ve stretched the analogy quite a bit. But wouldn&rsquo;t it be wonderful if it can be achieved?
+<meta name='description' content='Do we have to decide is it chicken or egg? Why can&rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&rsquo;ve stretched the analogy quite a bit. But wouldn&rsquo;t it be wonderful if it can be achieved?
 Often we tend to reason in terms of temporal order of events and get fixated on the order than the eventual result. In a non distributed, ensuring temporal order ensured correct eventual result.'>
 
 <meta property='og:title' content='Art of Disorderly Programming • Random Sparks'>
-<meta property='og:description' content='##Do we have to decide is it chicken or egg? Why can&rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&rsquo;ve stretched the analogy quite a bit. But wouldn&rsquo;t it be wonderful if it can be achieved?
+<meta property='og:description' content='Do we have to decide is it chicken or egg? Why can&rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&rsquo;ve stretched the analogy quite a bit. But wouldn&rsquo;t it be wonderful if it can be achieved?
 Often we tend to reason in terms of temporal order of events and get fixated on the order than the eventual result. In a non distributed, ensuring temporal order ensured correct eventual result.'>
 <meta property='og:url' content='https://shripad-agashe.github.io/2015/08/12/art-of-disorderly-programming/'>
 <meta property='og:site_name' content='Random Sparks'>
@@ -144,8 +144,11 @@ ga('send', 'pageview');
   
 
   <div class='container entry-content'>
-  <p>##Do we have to decide is it chicken or egg?
-Why can&rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&rsquo;ve stretched the analogy quite a bit. But wouldn&rsquo;t it be wonderful if it can be achieved?<br />
+  
+
+<h2 id="do-we-have-to-decide-is-it-chicken-or-egg">Do we have to decide is it chicken or egg?</h2>
+
+<p>Why can&rsquo;t we let them come in any order and decide the outcome as cumulative effect of two events? Well I&rsquo;ve stretched the analogy quite a bit. But wouldn&rsquo;t it be wonderful if it can be achieved?<br />
 Often we tend to reason in terms of temporal order of events and get fixated on the order than the eventual result. In a non distributed, ensuring temporal order ensured correct eventual result. However in distributed systems temporal order is very hard to enforce and as a result ensuring correct result becomes a challenge. In my current project, there was a scenario which lent itself to similar treatment. This blog is my thoughts on the subject and hopefully it will help you to gather some interesting thoughts.</p>
 
 <p><em><strong>[Tangential]</strong> If we compare this with what has been studied in area of <strong><a href="http://www.eolss.net/sample-chapters/c15/E1-29-01-00.pdf" target="_blank">complex system</a></strong>, we will find a rich trove of information and solutions to deals with some of these problems.</em></p>
@@ -157,8 +160,9 @@ Consider a bank account. Let&rsquo;s say there is a constraint that an account i
 
 <p>For creating an account, the customer can be an existing customer or a new customer. The scenario we were trying to solve is creating an account for a new customer.</p>
 
-<p>##Simple Solution
-In a non distributed system supporting two phase commit functionality, the solution is simple. In a single session, first create a customer then the account with customer created earlier. This is depicted in sequence diagram below:</p>
+<h2 id="simple-solution">Simple Solution</h2>
+
+<p>In a non distributed system supporting two phase commit functionality, the solution is simple. In a single session, first create a customer then the account with customer created earlier. This is depicted in sequence diagram below:</p>
 
 <p><img src="/images/create-account-seq.jpg" alt="Alt text" /></p>
 
@@ -168,15 +172,17 @@ In a non distributed system supporting two phase commit functionality, the solut
 
 <p>All though two phase commit handles this via session handling, it can very well be modeled via business statues i.e. created-but-not-valid, created-and-valid, deleted etc. Business statuses are fairly common. Mostly they are used to mark logical deletion of entities for audit purposes. This technique is very useful technique and we will use in our solution.</p>
 
-<p>##Enter distributed system</p>
+<h2 id="enter-distributed-system">Enter distributed system</h2>
 
 <p>Enter distributed system and this reasoning is no longer simple. In our case customer and account entities were managed by separate applications. The mode of communication between applications was events. This architectural choice ruled out using distributed transactions or any such form of two phase commit. So we were forced to move away from temporal reasoning i.e. order of actions in system to a solution where the final state is insensitive to order of events. For that we to find out whether this scenario can be modeled to fit eventual consistency semantics and thats where we encountered CALM.</p>
 
-<p>##Determining if eventual consistency is even applicable
-There are efforts to ensure that programs are eventually consistent by design in presence of temporal non determinism. One such approach is CALM. CALM stands for consistency as logical monotonicity. <a href="http://db.cs.berkeley.edu/jmh/calm-cidr-short.pdf" target="_blank">CALM</a> specifies when an eventual consistency paradigm is applicable and which operations can guarantee consistency in presence of temporal non determinism. From what I understood, operations which can be modeled as sets and expressed as selection, projection and join can be implemented as eventually consistent. Operations such as aggregation or anti-join can only be implemented via blocking operation.</p>
+<h2 id="determining-if-eventual-consistency-is-even-applicable">Determining if eventual consistency is even applicable</h2>
 
-<p>##What is monotoic logic
-I found this nice example from a book on distributed computing by <a href="http://book.mixu.net/distsys/index.html" target="_blank">Mikito Takada</a>
+<p>There are efforts to ensure that programs are eventually consistent by design in presence of temporal non determinism. One such approach is CALM. CALM stands for consistency as logical monotonicity. <a href="http://db.cs.berkeley.edu/jmh/calm-cidr-short.pdf" target="_blank">CALM</a> specifies when an eventual consistency paradigm is applicable and which operations can guarantee consistency in presence of temporal non determinism. From what I understood, operations which can be modeled as sets and expressed as selection, projection and join can be implemented as eventually consistent. Operations such as aggregation or anti-join can only be implemented via blocking operation.</p>
+
+<h2 id="what-is-monotoic-logic">What is monotoic logic</h2>
+
+<p>I found this nice example from a book on distributed computing by <a href="http://book.mixu.net/distsys/index.html" target="_blank">Mikito Takada</a>
 Consider a fact that Twity is a bird. We can deduce that twity has a beak. No amount of new information is going to invalidate it. However if we have to assert, since Twity is a bird and not a penguin , hence it can fly, a new fact can invalidate our assertion (e.g. Twity is a penguin ). Hence the operation to deduce whether Twity can fly is not monotonic. Former is an example of join and later is an example of anti-join. For join operations, accuracy and consistency will increase as more input is received. However initial inference will not be invalidated. Hence it can be said that consistency will increase monotonically.</p>
 
 <p>Whereas for negation operation, initial inference may be invalidated by new data. Sort of like evidence of absence is not absence of evidence.</p>
@@ -185,7 +191,7 @@ Consider a fact that Twity is a bird. We can deduce that twity has a beak. No am
 
 <p>For systems where input arrival has characteristics of a stream i.e. it does not have a guaranteed temporal order as well as message arrival is unbounded in terms of time limit of completion we can apply CALM technique to arrive at appropriate design decisions.</p>
 
-<p>##Creating Account as CALM</p>
+<h2 id="creating-account-as-calm">Creating Account as CALM</h2>
 
 <p>In case of the account creation:</p>
 
@@ -204,8 +210,9 @@ Coming back to our solution. The diagram below explains our final solution:</p>
 
 <p>The business rule is that account is valid with it has a customer.  One can always create an account without customer and assign customer to it later. We utilized this. The key idea in our solution was to create a shell account with invalid status. The shell account had information about the customer associated with it by way of pre-decided customer ID. We created customer with same customer ID. Later account domain executed logic to change account status to valid twice: at account creation and when it received any customer created event. With this scheme of things, we could in order insensitive manner ensure compliance with business rule for creation of account.</p>
 
-<p>##In conclusion
-Creating an order insensitive solution required a leap of faith for us. The solution is not very obvious and without formal tools like CALM we would not have been able to reason about scenarios. But we came out wiser(hopefuly :-) ) ) and a lot happier.</p>
+<h2 id="in-conclusion">In conclusion</h2>
+
+<p>Creating an order insensitive solution required a leap of faith for us. The solution is not very obvious and without formal tools like CALM we would not have been able to reason about scenarios. But we came out wiser(hopefuly :-) ) ) and a lot happier.</p>
 
 </div>
 
@@ -235,6 +242,31 @@ Creating an order insensitive solution required a leap of faith for us. The solu
     </div></div>
 </nav>
 
+
+<section class='comments'>
+  <div class='container sep-before'>
+    <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "@RandonSparks42" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+  </div>
+</section>
 
 
       </main>
