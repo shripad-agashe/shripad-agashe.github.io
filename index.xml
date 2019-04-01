@@ -5,22 +5,10 @@
     <link>https://shripad-agashe.github.io/</link>
     <description>Recent content on Random Sparks</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Fri, 12 Oct 2018 16:25:06 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 04 Apr 2018 16:25:06 +0000</lastBuildDate>
     
 	<atom:link href="https://shripad-agashe.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Case for d</title>
-      <link>https://shripad-agashe.github.io/2018/10/12/making-educated-guess/</link>
-      <pubDate>Fri, 12 Oct 2018 16:25:06 +0000</pubDate>
-      
-      <guid>https://shripad-agashe.github.io/2018/10/12/making-educated-guess/</guid>
-      <description> My last blog entry on [difficulties in abstractions][1] has been summarized nicely by Jessica Kerr in her [tweet][2]
-&amp;ldquo;To find the right abstraction, guess.If it exhibits the right properties, stop.&amp;rdquo;
-With that theme I&amp;rsquo;m going to dive into the guessing game of abstraction in this blog post.
-Reductionism vs emergent behavior </description>
-    </item>
     
     <item>
       <title>The guessing game of abstractions</title>
